@@ -149,7 +149,12 @@ def main():
             break
         else:
             cmd_args = command.split(" ")
-            commands[cmd_args[0]]([arg.strip() for arg in cmd_args[1:]])
+            if cmd_args[0] in commands.keys():
+                commands[cmd_args[0]]([arg.strip() for arg in cmd_args[1:]])
+            else:
+                print(
+                    f"Invalid command '{cmd_args[0]}' entered. Type 'h' for valid command list."
+                )
 
 
 if __name__ == "__main__":
